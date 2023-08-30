@@ -19,7 +19,9 @@ curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.de
 if [ $domn="y" ]
 then
    sudo EXTERNAL_URL="https:gitlab.$addr" apt-get install gitlab-ee
+   echo $EXTERNAL_URL
     
 else
     sudo EXTERNAL_URL="http:$addr" apt-get install gitlab-ee
+    echo $EXTERNAL_URL
 fi
