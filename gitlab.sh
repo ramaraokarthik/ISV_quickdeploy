@@ -1,4 +1,4 @@
-#!/bin/bash
+l#!/bin/bash
 
 
 echo "Open your cloud console. Click the hamburger icon."
@@ -19,9 +19,10 @@ curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.de
 if [ $domn="y" ]
 then
    sudo EXTERNAL_URL="https:gitlab.$addr" apt-get install gitlab-ee
-   echo $EXTERNAL_URL
+   echo "Helloo difrt"
+   
     
 else
     sudo EXTERNAL_URL="http:$addr" apt-get install gitlab-ee
-    echo $EXTERNAL_URL
+    echo "Heloo Seond"
 fi
