@@ -12,12 +12,12 @@ echo "domain name as the answer to the followign question"
 
 read -p "Do you have a domain associated with the IP (repond with only y or n) : " domn
 read -p "Enter the IP address of the server or associated domain name : " addr
-sudo apt-get update
-sudo apt-get install -y curl openssh-server ca-certificates tzdata perl
-sudo apt-get install -y postfix
-curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh | sudo bash
+#sudo apt-get update
+#sudo apt-get install -y curl openssh-server ca-certificates tzdata perl
+#sudo apt-get install -y postfix
+#curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh | sudo bash
 
-if [ $domn  = "y" ]
+if [ $domn  = y ]
 
 then
 #    sudo EXTERNAL_URL="https:gitlab.$addr" apt-get install gitlab-ee
