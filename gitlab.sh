@@ -21,7 +21,8 @@ then
  echo $domn
  sudo EXTERNAL_URL="https:gitlab.$addr" apt-get install gitlab-ee
  echo "Helloo difrt" 
-else
+fi
+if [ $domn="n" ]
  echo " second $domn"
  sudo EXTERNAL_URL="http:$addr" apt-get install gitlab-ee
  echo "Heloo Seond"
