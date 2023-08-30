@@ -18,11 +18,13 @@ sudo apt-get install -y postfix
 curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh | sudo bash
 if [ $domn="y" ]
 then
+   echo $domn
    sudo EXTERNAL_URL="https:gitlab.$addr" apt-get install gitlab-ee
    echo "Helloo difrt"
    
     
 else
+    echo $domn
     sudo EXTERNAL_URL="http:$addr" apt-get install gitlab-ee
     echo "Heloo Seond"
 fi
