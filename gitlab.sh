@@ -16,8 +16,10 @@ read -p "Enter the IP address of the server or associated domain name : " addr
 #sudo apt-get install -y curl openssh-server ca-certificates tzdata perl
 #sudo apt-get install -y postfix
 #curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh | sudo bash
+echo $domn
+echo $addr
 
-if [ $domn  = y ]
+if [ $domn  = "y" ]
 
 then
 #    sudo EXTERNAL_URL="https:gitlab.$addr" apt-get install gitlab-ee
