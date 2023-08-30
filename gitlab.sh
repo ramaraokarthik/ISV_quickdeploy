@@ -24,7 +24,7 @@ echo $addr
 #then
 #    sudo EXTERNAL_URL="https:gitlab.$addr" apt-get install gitlab-ee
 #     echo $domn
-     sudo EXTERNAL_URL="https:gitlab.$addr"
+     EXTERNAL_URL="https:gitlab.$addr"
      echo EXTERNAL_URL
         
 #else
