@@ -20,9 +20,7 @@ if [ $domn="y" ]
 then
  echo $domn
  sudo EXTERNAL_URL="https:gitlab.$addr" apt-get install gitlab-ee
- echo "Helloo difrt"
-   
-    
+ echo "Helloo difrt" 
 else
  echo " second $domn"
  sudo EXTERNAL_URL="http:$addr" apt-get install gitlab-ee
