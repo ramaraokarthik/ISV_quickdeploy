@@ -20,12 +20,12 @@ echo $domn
 echo $addr
 
 if [ $domn="y" ]
-
 then
 #    sudo EXTERNAL_URL="https:gitlab.$addr" apt-get install gitlab-ee
 #     echo $domn
      EXTERNAL_URL="https:gitlab.$addr"
      echo $EXTERNAL_URL
         
-#else
-#    sudo EXTERNAL_URL="http:$addr" apt-get install gitlab-ee
+else
+    sudo EXTERNAL_URL="http:$addr" apt-get install gitlab-ee
+fi
