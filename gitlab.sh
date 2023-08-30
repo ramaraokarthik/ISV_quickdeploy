@@ -19,9 +19,9 @@ read -p "Enter the IP address of the server or associated domain name : " addr
 echo $domn
 echo $addr
 
-#if [ $domn  = "y" ]
+if [ $domn  = "y" ]
 
-#then
+then
 #    sudo EXTERNAL_URL="https:gitlab.$addr" apt-get install gitlab-ee
 #     echo $domn
      EXTERNAL_URL="https:gitlab.$addr"
