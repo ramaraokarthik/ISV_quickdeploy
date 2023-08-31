@@ -5,9 +5,10 @@ NC='\033[0m' # No Color
 BOLD=$(tput bold)
 NORM=$(tput sgr0)
 
-echo -e "${Red}${BOLD} APAC ISV QuickDeploy for Gitlab"
-
-echo -e "${GREEN}${BOLD} Open your cloud console. Click the hamburger icon."
+echo -e "${RED}${BOLD}         APAC ISV QuickDeploy for Gitlab ${NC}${NORM}"
+echo ""
+echo ""
+echo -e "${GREEN}${BOLD}Open your cloud console. Click the hamburger icon."
 echo "Hover one  "Compute Engine"  and then click VM Instances"
 echo "Look for for the vm name that you gave when you subscribed"
 echo "for gitlab. If default it will be of the form"
