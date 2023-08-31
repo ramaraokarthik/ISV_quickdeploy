@@ -27,13 +27,13 @@ curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.de
 if  [ "$domn" == "y" ]
 then
  echo ""
- echo -e "${GREEN}Using URL gitlab.$addr $NC"
+ echo -e "${GREEN}${BOLD}Using URL gitlab.$addr ${NC}${NORM}"
  echo ""
 
  sudo EXTERNAL_URL="https:gitlab.$addr" apt-get install gitlab-ee
 else [ "$domn" == "n"] 
  echo ""
- echo -e "${GREEN}Using IP $addr $NC"
+ echo -e "${GREEN}${BOLD}Using IP $addr ${NC}${NORM}"
  echo ""
  sudo EXTERNAL_URL="http:$addr" apt-get install gitlab-ee
 fi
