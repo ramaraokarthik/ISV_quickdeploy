@@ -17,7 +17,7 @@ echo "gitlab-vm-x-vm ( x will be a numeral)"
 echo "Copy the "External IP" and respond to the following question"
 echo "Incase you have associated that IP to a domain name, give the"
 echo -e  "domain name as the answer to the followign question ${NC}${NORM}"
-sleep 10
+sleep 5
 read -p "Do you have a domain associated with the IP (repond with only y or n) : " domn
 read -p "Enter the IP address of the server or associated domain name : " addr
 sudo apt-get update
@@ -27,13 +27,13 @@ curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.de
 if  [ "$domn" == "y" ]
 then
  echo ""
- echo "${GREEN}Using URL gitlab.$addr $NC"
+ echo -e "${GREEN}Using URL gitlab.$addr $NC"
  echo ""
 
  sudo EXTERNAL_URL="https:gitlab.$addr" apt-get install gitlab-ee
 else [ "$domn" == "n"] 
  echo ""
- echo "${GREEN}Using IP $addr $NC"
+ echo -e "${GREEN}Using IP $addr $NC"
  echo ""
  sudo EXTERNAL_URL="http:$addr" apt-get install gitlab-ee
 fi
