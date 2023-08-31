@@ -1,4 +1,4 @@
-l#!/bin/bash
+#!/bin/bash
 
 
 echo "Open your cloud console. Click the hamburger icon."
@@ -16,12 +16,12 @@ sudo apt-get update
 sudo apt-get install -y curl openssh-server ca-certificates tzdata perl
 sudo apt-get install -y postfix
 curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh | sudo bash
-if $domn="y"
+if  [ "$domn" == "y" ]
 then
  echo $domn
  sudo EXTERNAL_URL="https:gitlab.$addr" apt-get install gitlab-ee
  echo "Helloo difrt" 
-else $domn="n" 
+else i[ "$domn" == "n"] 
  echo " second $domn"
  sudo EXTERNAL_URL="http:$addr" apt-get install gitlab-ee
  echo "Heloo Seond"
