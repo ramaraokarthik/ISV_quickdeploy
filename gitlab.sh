@@ -26,7 +26,14 @@ sudo apt-get install -y postfix
 curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh | sudo bash
 if  [ "$domn" == "y" ]
 then
+ echo ""
+ echo "Using URL gitlab.$addr"
+ echo ""
+
  sudo EXTERNAL_URL="https:gitlab.$addr" apt-get install gitlab-ee
 else [ "$domn" == "n"] 
+ echo ""
+ echo "Using IP $addr"
+ echo ""
  sudo EXTERNAL_URL="http:$addr" apt-get install gitlab-ee
 fi
