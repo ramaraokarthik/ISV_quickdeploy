@@ -9,14 +9,14 @@ echo -e "${RED}${BOLD}         APAC ISV QuickDeploy for Gitlab ${NC}${NORM}"
 echo ""
 echo ""
 sleep 2
-echo -e "${GREEN}${BOLD}Open your cloud console. Click the hamburger icon."
-echo "Hover one  "Compute Engine"  and then click VM Instances"
-echo "Look for for the vm name that you gave when you subscribed"
-echo "for gitlab. If default it will be of the form"
-echo "gitlab-vm-x-vm ( x will be a numeral)"
-echo "Copy the "External IP" and respond to the following question"
-echo "Incase you have associated that IP to a domain name, give the"
-echo -e  "domain name as the answer to the followign question ${NC}${NORM}"
+echo -e "${GREEN}${BOLD}##!! Open your cloud console. Click the hamburger icon."
+echo "##!! Hover one  "Compute Engine"  and then click VM Instances"
+echo "##!! Look for for the vm name that you gave when you subscribed"
+echo "##!! for gitlab. If default it will be of the form"
+echo "##!! gitlab-vm-x-vm ( x will be a numeral)"
+echo "##!! Copy the "External IP" and respond to the following question"
+echo "##!! Incase you have associated that IP to a domain name, give the"
+echo -e  "##!! domain name as the answer to the followign question ${NC}${NORM}"
 sleep 5
 read -p "Do you have a domain associated with the IP (repond with only y or n) : " domn
 read -p "Enter the IP address of the server or associated domain name : " addr
@@ -37,8 +37,9 @@ else [ "$domn" == "n"]
  echo ""
  sudo EXTERNAL_URL="http:$addr" apt-get install gitlab-ee
 fi
-
-echo "Open the browser and connect to the gitlab instance with the IP address or gitlab.<domain name given above>"
-echo "Login with the root credentals below and change password immediately. Add uses and administer the instance"
-echo "Login name : root"
-echo "Password ( change after loggin in) 
+sudo 
+pass = sudo awk '$1=="Password:"{print $2}' /etc/gitlab/initial_root_password
+echo "##!! Open the browser and connect to the gitlab instance with the IP address or gitlab.<domain name given above>"
+echo "##!! Login with the root credentals below and change password immediately. Add uses and administer the instance"
+echo "##!! Login name : root"
+echo "##!! Password: $pass ( change after loggin in) "
