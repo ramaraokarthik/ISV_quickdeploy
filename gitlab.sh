@@ -61,5 +61,7 @@ sudo  gitlab-ctl reconfigure
 echo "##!! Open the browser and connect to the gitlab instance with the IP address or gitlab.<domain name given above>"
 echo "##!! Login with the root credentals below and change password immediately. Add uses and administer the instance"
 echo "##!! Login name : root"
-sudo awk '$1=="Password:"{print $2}' /etc/gitlab/initial_root_password
+pass=$(sudo awk '$1=="Password:"{print $2}' /etc/gitlab/initial_root_password)
+echo " Password: $pass"
+echo "Reset Password using UI"
 
