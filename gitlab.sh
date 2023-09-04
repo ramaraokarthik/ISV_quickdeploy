@@ -35,7 +35,7 @@ then
 #######Reinstall 
  #sudo EXTERNAL_URL="https:gitlab.$addr" apt-get install gitlab-ee
 
-sudo sed -i "s/external_url 'http:\/\/gitlab.example.com'/external_url 'http:\/\/$URL'/" ~/gitlab.rb
+sudo sed -i "s/external_url 'http:\/\/gitlab.example.com'/external_url 'http:\/\/$URL'/" /etc/gitlab/gitlab.rb 
 
 
  
@@ -44,9 +44,9 @@ else [ "$domn" == "n"]
  echo -e "${GREEN}${BOLD}Using IP $addr ${NC}${NORM}"
  echo ""
  # sudo EXTERNAL_URL="http:$addr" apt-get install gitlab-ee
- sudo sed -i "s/external_url 'http:\/\/gitlab.example.com'/external_url 'http:\/\/$addr'/" ~/gitlab.rb
+ sudo sed -i "s/external_url 'http:\/\/gitlab.example.com'/external_url 'http:\/\/$addr'/" /etc/gitlab/gitlab.rb 
 fi
-sudo 
+sudo  gitlab-ctl reconfigure
 pass=sudo awk '$1=="Password:"{print $2}' /etc/gitlab/initial_root_password
 echo "##!! Open the browser and connect to the gitlab instance with the IP address or gitlab.<domain name given above>"
 echo "##!! Login with the root credentals below and change password immediately. Add uses and administer the instance"
