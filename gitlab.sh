@@ -20,25 +20,34 @@ echo -e  "##!! domain name as the answer to the followign question ${NC}${NORM}"
 sleep 5
 read -p "Do you have a domain associated with the IP (repond with only y or n) : " domn
 read -p "Enter the IP address of the server or associated domain name : " addr
-sudo apt-get update
-sudo apt-get install -y curl openssh-server ca-certificates tzdata perl
-sudo apt-get install -y postfix
-curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh | sudo bash
+######Incase of a reinstall
+# sudo apt-get update
+# sudo apt-get install -y curl openssh-server ca-certificates tzdata perl
+# sudo apt-get install -y postfix
+# curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh | sudo bash
 if  [ "$domn" == "y" ]
 then
+ URL=gitlab.$addr
  echo ""
- echo -e "${GREEN}${BOLD}Using URL gitlab.$addr ${NC}${NORM}"
+ echo -e "${GREEN}${BOLD}Using URL $URL  ${NC}${NORM}"
  echo ""
 
- sudo EXTERNAL_URL="https:gitlab.$addr" apt-get install gitlab-ee
+#######Reinstall 
+ #sudo EXTERNAL_URL="https:gitlab.$addr" apt-get install gitlab-ee
+
+sudo sed -i "s/external_url 'http:\/\/gitlab.example.com'/external_url 'http:\/\/$URL'/" ~/gitlab.rb
+
+
+ 
 else [ "$domn" == "n"] 
  echo ""
  echo -e "${GREEN}${BOLD}Using IP $addr ${NC}${NORM}"
  echo ""
- sudo EXTERNAL_URL="http:$addr" apt-get install gitlab-ee
+ # sudo EXTERNAL_URL="http:$addr" apt-get install gitlab-ee
+ sudo sed -i "s/external_url 'http:\/\/gitlab.example.com'/external_url 'http:\/\/$addr'/" ~/gitlab.rb
 fi
 sudo 
-pass = sudo awk '$1=="Password:"{print $2}' /etc/gitlab/initial_root_password
+pass=sudo awk '$1=="Password:"{print $2}' /etc/gitlab/initial_root_password
 echo "##!! Open the browser and connect to the gitlab instance with the IP address or gitlab.<domain name given above>"
 echo "##!! Login with the root credentals below and change password immediately. Add uses and administer the instance"
 echo "##!! Login name : root"
