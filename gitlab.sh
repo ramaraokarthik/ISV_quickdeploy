@@ -17,7 +17,7 @@ echo "##!! gitlab-vm-x-vm ( x will be a numeral)"
 echo "##!! Copy the "External IP" and respond to the following question"
 echo "##!! Incase you have associated that IP to a domain name, give the"
 echo -e  "##!! domain name as the answer to the followign question ${NC}${NORM}"
-sleep 5
+sleep 4
 read -p "Do you have a domain associated with the IP (repond with only y or n) : " domn
 read -p "Enter the IP address of the server or associated domain name : " addr
 ######Incase of a reinstall
@@ -25,6 +25,9 @@ read -p "Enter the IP address of the server or associated domain name : " addr
 # sudo apt-get install -y curl openssh-server ca-certificates tzdata perl
 # sudo apt-get install -y postfix
 # curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh | sudo bash
+###############
+
+
 if  [ "$domn" == "y" ]
 then
  URL=gitlab.$addr
@@ -37,8 +40,6 @@ then
 
 sudo sed -i "s/external_url 'http:\/\/gitlab.example.com'/external_url 'http:\/\/$URL'/" /etc/gitlab/gitlab.rb 
 
-
- 
 else [ "$domn" == "n"] 
  echo ""
  echo -e "${GREEN}${BOLD}Using IP $addr ${NC}${NORM}"
@@ -46,9 +47,17 @@ else [ "$domn" == "n"]
  # sudo EXTERNAL_URL="http:$addr" apt-get install gitlab-ee
  sudo sed -i "s/external_url 'http:\/\/gitlab.example.com'/external_url 'http:\/\/$addr'/" /etc/gitlab/gitlab.rb 
 fi
+
+read -p "Do you have a License Key (repond with only y or n) : " lic
+if  [ "$lic" == "y" ]
+then
+ read -p "Please copy and paste the key : " key
+ sudo echo $key > /etc/gitlab/licensefile
+ sudo sed -i "s/gitlab_rails\['initial_license_file'\] = "\/path\/to\/license\/file"/gitlab_rails\['initial_license_file'\] = "\/etc\/gitlab\/licensefile"/" /etc/gitlab/gitlab.rb
+fi
 sudo  gitlab-ctl reconfigure
 pass=sudo awk '$1=="Password:"{print $2}' /etc/gitlab/initial_root_password
 echo "##!! Open the browser and connect to the gitlab instance with the IP address or gitlab.<domain name given above>"
 echo "##!! Login with the root credentals below and change password immediately. Add uses and administer the instance"
 echo "##!! Login name : root"
-echo "##!! Password: $pass ( change after loggin in) "
+echo "##!! Password: $pass ( change after loggin in. Will be valid for 24hrs from inital installation only) "
