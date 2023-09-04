@@ -53,7 +53,7 @@ if  [ "$lic" == "y" ]
 then
  read -p "Please copy and paste the key : " key
  sudo touch /etc/gitlab/licensefile
- sudo 777 /etc/gitlab/licensefile
+ sudo chmod 777 /etc/gitlab/licensefile
  sudo echo $key > /etc/gitlab/licensefile
  sudo sed -i "s/gitlab_rails\['initial_license_file'\] = "\/path\/to\/license\/file"/gitlab_rails\['initial_license_file'\] = "\/etc\/gitlab\/licensefile"/" /etc/gitlab/gitlab.rb
 fi
