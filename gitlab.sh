@@ -62,4 +62,4 @@ pass=sudo awk '$1=="Password:"{print $2}' /etc/gitlab/initial_root_password
 echo "##!! Open the browser and connect to the gitlab instance with the IP address or gitlab.<domain name given above>"
 echo "##!! Login with the root credentals below and change password immediately. Add uses and administer the instance"
 echo "##!! Login name : root"
-echo -e "##!! Password: $pass ( change after loggin in. Will be valid for 24hrs from inital installation only) "
+echo $pass 
