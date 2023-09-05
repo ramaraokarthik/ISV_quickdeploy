@@ -51,7 +51,8 @@ fi
 read -p "Do you have a License Key (repond with only y or n) : " lic
 if  [ "$lic" == "y" ]
 then
- read -p "Please copy and paste the key : " key
+ #read -p "Please copy and paste the key : " key
+ key = $(cat)
  sudo touch /etc/gitlab/licensefile
  sudo chmod 777 /etc/gitlab/licensefile
  sudo echo $key > /etc/gitlab/licensefile
