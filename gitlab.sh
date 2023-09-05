@@ -53,7 +53,7 @@ if  [ "$lic" == "y" ]
 then
  #read -p "Please copy and paste the key : " key
  echo "Input your key and press ctrl D"
- key = $(cat)
+ key=$(cat)
  sudo touch /etc/gitlab/licensefile
  sudo chmod 777 /etc/gitlab/licensefile
  sudo echo $key > /etc/gitlab/licensefile
