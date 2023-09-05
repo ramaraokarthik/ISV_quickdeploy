@@ -57,13 +57,16 @@ then
  sudo touch /etc/gitlab/licensefile
  sudo chmod 777 /etc/gitlab/licensefile
  sudo echo $key > /etc/gitlab/licensefile
- sudo sed -i "s/# gitlab_rails\['initial_license_file'\] \= '\/etc\/gitlab\/company.gitlab\-license'/gitlab_rails\['initial_license_file'\] \= '\/etc\/gitlab\/licensefffile'/" /etc/gitlab/gitlab.rb
+ sudo sed -i "s/# gitlab_rails\['initial_license_file'\] \= '\/etc\/gitlab\/company.gitlab\-license'/gitlab_rails\['initial_license_file'\] \= '\/etc\/gitlab\/licensefile'/" /etc/gitlab/gitlab.rb
 fi
 sudo  gitlab-ctl reconfigure
+echo ""
+echo -e "${GREEN}${BOLD}"
 echo "##!! Open the browser and connect to the gitlab instance with the IP address or gitlab.<domain name given above>"
 echo "##!! Login with the root credentals below and change password immediately. Add uses and administer the instance"
 echo "##!! Login name : root"
 pass=$(sudo awk '$1=="Password:"{print $2}' /etc/gitlab/initial_root_password)
-echo " Password: $pass"
-echo "Reset Password using UI"
+echo -e  "${GREEN}${BOLD}Password: $pass${NC}${NORM}"
+echo "Reset Password using UI WITHIN 24 HOURS"
+echo -e "${NC}${NORM}"
 
